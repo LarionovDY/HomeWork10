@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HomeWork10
+{
+    class Corner
+    {
+        private int grad;
+        public int Grad
+        {
+            get { return grad; }
+            set
+            {
+                if (grad >= 0 && grad < 359)
+                {
+                    grad = value;
+                }
+                else
+                {
+                    Console.WriteLine("Значение должно составлять от 0 до 359");
+                }
+
+            }
+        }
+        private int minute;
+        public int Minute
+        {
+            get { return minute; }
+            set
+            {
+                if (minute >= 0 && minute < 59)
+                {
+                    minute = value;
+                }
+                else
+                {
+                    Console.WriteLine("Значение должно составлять от 0 до 59");
+                }
+            }
+        }
+        private int second;
+        public int Second
+        {
+            get { return second; }
+            set
+            {
+                if (second >= 0 && second < 59)
+                {
+                    second = value;
+                }
+                else
+                {
+                    Console.WriteLine("Значение должно составлять от 0 до 59");
+                }
+            }
+        }
+        public Corner() 
+        {
+            this.grad = 0;
+            this.minute = 0;
+            this.second = 0;
+        }
+        public Corner(int grad)
+        {
+            this.grad = grad;
+        }
+        public Corner(int grad, int minute) : this(grad)
+        {
+            this.minute = minute;
+        }
+        public Corner(int grad, int minute, int second) : this(grad, minute)
+        {
+            this.second = second;
+        }
+        public double GradToRad(int grad, int minute, int second)
+        {
+            double rad = (grad + minute / 60 + second / 360) * Math.PI / 180;
+            return rad;
+        }
+
+    }
+}
