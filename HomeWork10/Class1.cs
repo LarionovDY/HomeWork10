@@ -59,19 +59,19 @@ namespace HomeWork10
         }
         public Angle()
         {
-            grad = 0;
-            minute = 0;
-            second = 0;
+            Grad = 0;
+            Minute = 0;
+            Second = 0;
         }
-        private Angle(int grad, int minute, int second)
+        public Angle(int grad, int minute, int second)
         {
-            this.grad = grad;
-            this.minute = minute;
-            this.second = second;
+            Grad = grad;
+            Minute = minute;
+            Second = second;
         }
-        public double ToRadian(int grad, int minute, int second)
+        public double ToRadian()
         {
-            double radian = (grad + (double)minute / 60 + (double)second / 3600) * Math.PI / 180;
+            double radian = (Grad + (double)Minute / 60 + (double)Second / 3600) * Math.PI / 180;
             Console.WriteLine($"Значение угла в радианах: {radian:f3}");
             return radian;
         }
