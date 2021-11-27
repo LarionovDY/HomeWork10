@@ -16,19 +16,32 @@ namespace HomeWork10
     {
         static void Main(string[] args)
         {
-            var angle = new Angle();            
-            Console.WriteLine("Введите пожалуйста значение угла в градусах, минутах, секундах");
-            Console.WriteLine("Градусы:");
-            angle.Grad = int.Parse(Console.ReadLine());
-            Console.WriteLine("Минуты:");
-            angle.Minute = int.Parse(Console.ReadLine());
-            Console.WriteLine("Секунды:");
-            angle.Second = int.Parse(Console.ReadLine());
-            double radian = angle.ToRadian(angle.Grad, angle.Minute, angle.Second);
-            double cosAngle1 = Math.Cos(radian);
-            Console.WriteLine($"Косинус введенного угла: {Math.Cos(radian):f3}, синус: {Math.Sin(radian):f3}");            
+
+            Console.WriteLine("Введите пожалуйста значение угла в градусах, минутах, секундах");            
+            int grad = ReadValue("Градусы:");
+            int minute = ReadValue("Минуты:");
+            int second = ReadValue("Секунды:");            
+            var angle = new Angle(grad, minute, second);            
+            double radian = angle.ToRadian();            
+            Console.WriteLine($"Косинус введенного угла: {Math.Cos(radian):f3}, синус: {Math.Sin(radian):f3}");
             Console.ReadKey();
         }
+        static int ReadValue(string text)   //метод проверяющий корректность ввода данных
+        {
+            int value;
+            while (true)
+            {
+                Console.WriteLine(text);
+                if (Int32.TryParse(Console.ReadLine(), out value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine("Ввод некорректен");
+                }
+            }
+        }
     }
-    
 }
+

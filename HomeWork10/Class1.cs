@@ -30,14 +30,13 @@ namespace HomeWork10
             get { return minute; }
             set
             {
-
                 if (value >= 0 && value <= 59)
                 {
                     minute = value;
                 }
                 else
                 {
-                    Console.WriteLine("Некорректный ввод, значение должно составлять от 0 до 59, присвоено значение по умолчанию (0).");
+                    Console.WriteLine("Некорректный ввод, значение минут должно составлять от 0 до 59. Установлено значение по умолчанию (0)");
                 }
             }
         }
@@ -53,7 +52,7 @@ namespace HomeWork10
                 }
                 else
                 {
-                    Console.WriteLine("Некорректный ввод, значение должно составлять от 0 до 59, присвоено значение по умолчанию (0).");
+                    Console.WriteLine("Некорректный ввод, значение секунд должно составлять от 0 до 59. Установлено значение по умолчанию (0)");
                 }
             }
         }
@@ -63,16 +62,18 @@ namespace HomeWork10
             minute = 0;
             second = 0;
         }
-        private Angle(int grad, int minute, int second)
+        public Angle(int grad, int minute, int second)
         {
-            this.grad = grad;
-            this.minute = minute;
-            this.second = second;
+            Grad = grad;
+            Minute = minute;
+            Second = second;
         }
-        public double ToRadian(int grad, int minute, int second)
+
+        public double ToRadian()
         {
-            double radian = (grad + (double)minute / 60 + (double)second / 3600) * Math.PI / 180;
-            Console.WriteLine($"Значение угла в радианах: {radian:f3}");
+            double radian = 0;
+            radian = (grad + (double)minute / 60 + (double)second / 3600) * Math.PI / 180;
+            Console.WriteLine($"Значение угла в радианах: {radian:f3}");                        
             return radian;
         }
     }
