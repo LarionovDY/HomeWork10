@@ -68,7 +68,7 @@ namespace HomeWork10
             Minute = minute;
             Second = second;
         }
-        public double ToRadian(int grad, int minute, int second)
+        public double ToRadian()
         {
             double radian = (grad + (double)minute / 60 + (double)second / 3600) * Math.PI / 180;
             Console.WriteLine($"Значение угла в радианах: {radian:f3}");

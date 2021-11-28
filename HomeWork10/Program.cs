@@ -41,7 +41,7 @@ namespace HomeWork10
                     Console.WriteLine("Ввод некорректен");
                 }
             }
-        }
-    }
+        }        
+    } 
 }
 
