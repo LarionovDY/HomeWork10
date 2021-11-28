@@ -58,9 +58,9 @@ namespace HomeWork10
         }
         public Angle()
         {
-            grad = 0;
-            minute = 0;
-            second = 0;
+            Grad = 0;
+            Minute = 0;
+            Second = 0;
         }
         public Angle(int grad, int minute, int second)
         {
@@ -68,12 +68,10 @@ namespace HomeWork10
             Minute = minute;
             Second = second;
         }
-
-        public double ToRadian()
+        public double ToRadian(int grad, int minute, int second)
         {
-            double radian = 0;
-            radian = (grad + (double)minute / 60 + (double)second / 3600) * Math.PI / 180;
-            Console.WriteLine($"Значение угла в радианах: {radian:f3}");                        
+            double radian = (grad + (double)minute / 60 + (double)second / 3600) * Math.PI / 180;
+            Console.WriteLine($"Значение угла в радианах: {radian:f3}");
             return radian;
         }
     }
